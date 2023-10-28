@@ -33,6 +33,7 @@ services:
       - WG_KEEPALIVE=${WG_KEEPALIVE:-25}
       - WG_DEVICE=${WG_DEVICE:-wg0}
       - WG_DEFAULT_DNS=10.2.0.100
+      - WG_DEFAULT_ADDRESS=${WG_DEFAULT_ADDRESS:-10.6.0.x}
       - PASSWORD=${WG_PASS:-NotSecure<0Dude}
       - PUID=1000
       - PGID=1000
