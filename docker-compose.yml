@@ -21,7 +21,8 @@ services:
 
   wireguard:
     depends_on: [unbound, adguard]
-    image: linuxserver/wireguard
+    #image: linuxserver/wireguard
+    image: weejewel/wg-easy:latest
     container_name: wireguard
     cap_add:
       - NET_ADMIN
@@ -47,7 +48,8 @@ services:
       - ALLOWEDIPS=${ALLOWED_IPS:-0.0.0.0/0}
       #- ALLOWEDIPS=10.2.0.0/24 # optional - split tunnel for web panel and DNS traffic only
     volumes:
-      - ./wireguard:/config
+      #- ./wireguard:/config
+      - ./wgeasyconfig:/etc/wireguard
       - /lib/modules:/lib/modules
     ports:
       - "51820:51820/udp"
