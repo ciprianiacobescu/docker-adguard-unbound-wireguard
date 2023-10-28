@@ -44,6 +44,7 @@ services:
       - PEERDNS=10.2.0.100 # Set it to point to adguard home
       - INTERNAL_SUBNET=10.6.0.0
       - ALLOWED_IPS=${ALLOWED_IPS:-0.0.0.0/0}
+      - ALLOWEDIPS=${ALLOWED_IPS:-0.0.0.0/0}
       #- ALLOWEDIPS=10.2.0.0/24 # optional - split tunnel for web panel and DNS traffic only
     volumes:
       - ./wireguard:/config
@@ -64,6 +65,10 @@ services:
     image: adguard/adguardhome
     restart: unless-stopped
     hostname: adguard
+    expose:
+      - 3000
+    ports:
+      - "${BIND_IP:-127.0.0.1}:3000:3000/tcp"
     # Volumes store your data between container upgrades
     volumes:
       - "./adguard/opt-adguard-work:/opt/adguardhome/work"
