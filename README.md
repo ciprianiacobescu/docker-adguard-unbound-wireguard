@@ -10,6 +10,9 @@ https://github.com/fnazz/oracle-freetier-tf-adguard-unbound-wireguard
 ## Author
 **Naz F**
 
+## Contributor
+**Ciprian**
+
 Docker Compose file contains:
 - adguard - https://hub.docker.com/r/adguard/adguardhome
 - unbound - https://hub.docker.com/r/mvance/unbound
